@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moksh's Language</title>
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1e1e1e, #2c2c2c);
+            color: #f0f0f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        header {
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: #f0f0f0;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff5722;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        .container h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 2em;
+            color: #ff5722;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .input-group textarea, .input-group input {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #f0f0f0;
+        }
+
+        .input-group textarea:focus, .input-group input:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #ff5722;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #e64a19;
+        }
+
+        .output {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 5px;
+            font-size: 1.2em;
+            min-height: 50px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #444;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #333;
+        }
+
+        tr:nth-child(even) {
+            background-color: #2a2a2a;
+        }
+
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            color: #777;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Moksh's secuge</h1>
+        <nav>
+            <a href="#encode">Encode</a>
+            <a href="#decode">Decode</a>
+            <a href="#learn">Learn</a>
+        </nav>
+    </header>
+
+    <div class="container" id="encode">
+        <h2>Encode Your Message</h2>
+        <div class="input-group">
+            <label for="encodeInput">Enter English Text:</label>
+            <textarea id="encodeInput" rows="4" placeholder="Type your message here..."></textarea>
+        </div>
+        <button class="button" onclick="encodeMessage()">Encode</button>
+        <div class="output" id="encodeOutput"></div>
+    </div>
+
+    <div class="container" id="decode">
+        <h2>Decode Your Message</h2>
+        <div class="input-group">
+            <label for="decodeInput">Enter Coded Text:</label>
+            <textarea id="decodeInput" rows="4" placeholder="Type your coded message here..."></textarea>
+        </div>
+        <button class="button" onclick="decodeMessage()">Decode</button>
+        <div class="output" id="decodeOutput"></div>
+    </div>
+
+    <div class="container" id="learn">
+        <h2>Learn the Language</h2>
+        <table>
+            <tr>
+                <th>English Letter</th>
+                <th>Coded Letter</th>
+            </tr>
+            <tr><td>A</td><td>mm</td></tr>
+            <tr><td>B</td><td>mo</td></tr>
+            <tr><td>C</td><td>mk</td></tr>
+            <tr><td>D</td><td>ms</td></tr>
+            <tr><td>E</td><td>mh</td></tr>
+            <tr><td>F</td><td>om</td></tr>
+            <tr><td>G</td><td>oo</td></tr>
+            <tr><td>H</td><td>ok</td></tr>
+            <tr><td>I</td><td>os</td></tr>
+            <tr><td>J</td><td>oh</td></tr>
+            <tr><td>K</td><td>km</td></tr>
+            <tr><td>L</td><td>ko</td></tr>
+            <tr><td>M</td><td>ks</td></tr>
+            <tr><td>N</td><td>kh</td></tr>
+            <tr><td>O</td><td>sm</td></tr>
+            <tr><td>P</td><td>so</td></tr>
+            <tr><td>Q</td><td>sk</td></tr>
+            <tr><td>R</td><td>ss</td></tr>
+            <tr><td>S</td><td>sh</td></tr>
+            <tr><td>T</td><td>hm</td></tr>
+            <tr><td>U</td><td>ho</td></tr>
+            <tr><td>V</td><td>hk</td></tr>
+            <tr><td>W</td><td>hs</td></tr>
+            <tr><td>X</td><td>hh</td></tr>
+            <tr><td>Y</td><td>al</td></tr> <!-- Updated -->
+            <tr><td>Z</td><td>la</td></tr> <!-- Updated -->
+        </table>
+        <p style="margin-top:20px;">
+            <strong>Note:</strong> Each coded word ends with a 'd'. For example, "HELLO" is encoded as "okmhkokosmd".
+        </p>
+    </div>
+
+    <footer>
+        &copy; 2024 Moksh's Secret Language. All rights reserved.
+    </footer>
+
+    <script>
+        // Mapping Tables
+        const encodeMap = {
+            'A': 'mm', 'B': 'mo', 'C': 'mk', 'D': 'ms', 'E': 'mh',
+            'F': 'om', 'G': 'oo', 'H': 'ok', 'I': 'os', 'J': 'oh',
+            'K': 'km', 'L': 'ko', 'M': 'ks', 'N': 'kh', 'O': 'sm',
+            'P': 'so', 'Q': 'sk', 'R': 'ss', 'S': 'sh', 'T': 'hm',
+            'U': 'ho', 'V': 'hk', 'W': 'hs', 'X': 'hh', 'Y': 'al', /* Updated */
+            'Z': 'la' /* Updated */
+        };
+
+        const decodeMap = {
+            'mm': 'A', 'mo': 'B', 'mk': 'C', 'ms': 'D', 'mh': 'E',
+            'om': 'F', 'oo': 'G', 'ok': 'H', 'os': 'I', 'oh': 'J',
+            'km': 'K', 'ko': 'L', 'ks': 'M', 'kh': 'N', 'sm': 'O',
+            'so': 'P', 'sk': 'Q', 'ss': 'R', 'sh': 'S', 'hm': 'T',
+            'ho': 'U', 'hk': 'V', 'hs': 'W', 'hh': 'X', 'al': 'Y', /* Updated */
+            'la': 'Z' /* Updated */
+        };
+
+        // Encoding Function
+        function encodeMessage() {
+            let input = document.getElementById('encodeInput').value.toUpperCase();
+            let encoded = '';
+            let words = input.split(' ');
+
+            words.forEach(word => {
+                let codedWord = '';
+                for (let char of word) {
+                    if (encodeMap[char]) {
+                        codedWord += encodeMap[char];
+                    }
+                }
+                encoded += codedWord + 'd ';
+            });
+
+            document.getElementById('encodeOutput').innerText = encoded.trim();
+        }
+
+        // Decoding Function
+        function decodeMessage() {
+            let input = document.getElementById('decodeInput').value.toLowerCase();
+            let decoded = '';
+            let words = input.split('d');
+
+            words.forEach(word => {
+                word = word.trim();
+                if (word === '') return;
+                let i = 0;
+                while (i < word.length) {
+                    // Check for three-letter code first
+                    if (word.substring(i, i + 3) in decodeMap) {
+                        decoded += decodeMap[word.substring(i, i + 3)];
+                        i += 3;
+                    }
+                    // Then check for two-letter code
+                    else if (word.substring(i, i + 2) in decodeMap) {
+                        decoded += decodeMap[word.substring(i, i + 2)];
+                        i += 2;
+                    }
+                    else {
+                        decoded += '?';
+                        i += 1;
+                    }
+                }
+                decoded += ' ';
+            });
+
+            document.getElementById('decodeOutput').innerText = decoded.trim();
+        }
+    </script>
+
+</body>
+</html>
